@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>윌슨병 구리 식품 분류표</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;
+    font-size: 9pt;
+    line-height: 1.4;
+    color: #222;
+    padding: 8mm;
+  }
+  h1 {
+    font-size: 16pt;
+    text-align: center;
+    margin-bottom: 2mm;
+    border-bottom: 2px solid #333;
+    padding-bottom: 2mm;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 8pt;
+    color: #555;
+    margin-bottom: 4mm;
+  }
+  h2 {
+    font-size: 12pt;
+    margin: 4mm 0 2mm 0;
+    padding: 1.5mm 3mm;
+    border-radius: 2px;
+  }
+  h3 {
+    font-size: 10pt;
+    margin: 3mm 0 1.5mm 0;
+  }
+  /* 등급별 색상 */
+  .grade-red { background: #fee2e2; border-left: 4px solid #dc2626; }
+  .grade-orange { background: #fff7ed; border-left: 4px solid #ea580c; }
+  .grade-yellow { background: #fefce8; border-left: 4px solid #ca8a04; }
+  .grade-green { background: #f0fdf4; border-left: 4px solid #16a34a; }
+
+  .section-avoid h3 { color: #dc2626; }
+  .section-caution h3 { color: #ca8a04; }
+  .section-safe h3 { color: #16a34a; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 3mm;
+    font-size: 8.5pt;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 1.5mm 2mm;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  /* 핵심요약 테이블 색상 */
+  .tbl-danger th { background: #fecaca; width: 80px; }
+  .tbl-danger td { background: #fef2f2; }
+  .tbl-caution th { background: #fde68a; width: 80px; }
+  .tbl-caution td { background: #fffbeb; }
+  .tbl-safe th { background: #bbf7d0; width: 80px; }
+  .tbl-safe td { background: #f0fdf4; }
+
+  /* 등급 기준 테이블 */
+  .grade-table th { background: #f3f4f6; }
+  .grade-table td:first-child { text-align: center; font-weight: 600; }
+
+  /* 상세 분류 */
+  .detail-section { margin-bottom: 3mm; }
+  .detail-section .cat { font-weight: 600; display: inline; }
+  .detail-section .cat::after { content: ": "; }
+  .detail-section p { margin-bottom: 1mm; }
+
+  .tips {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 3px;
+    padding: 2mm 3mm;
+    margin: 2mm 0;
+  }
+  .tips ol {
+    padding-left: 5mm;
+    margin: 0;
+  }
+  .tips li { margin-bottom: 0.5mm; }
+
+  .note {
+    font-size: 7.5pt;
+    color: #666;
+    margin: 1mm 0;
+    padding: 1mm 2mm;
+    background: #f9fafb;
+    border-left: 2px solid #9ca3af;
+  }
+
+  .refs {
+    font-size: 7pt;
+    color: #888;
+    margin-top: 3mm;
+    border-top: 1px solid #ddd;
+    padding-top: 2mm;
+  }
+  .refs a { color: #888; }
+
+  .warning-box {
+    text-align: center;
+    font-size: 8pt;
+    color: #b91c1c;
+    font-weight: 600;
+    margin-top: 2mm;
+    padding: 2mm;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 3px;
+  }
+
+  /* 2열 레이아웃 */
+  .two-col {
+    display: flex;
+    gap: 3mm;
+  }
+  .two-col > div { flex: 1; }
+
+  /* 인쇄 CSS */
+  @media print {
+    body { padding: 5mm; font-size: 8.5pt; }
+    @page { size: A4; margin: 8mm; }
+    .page-break { page-break-before: always; }
+    .no-break { page-break-inside: avoid; }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== 페이지 1: 핵심 요약 ===== -->
+<h1>윌슨병 구리 식품 분류표</h1>
+<p class="subtitle">국가표준식품성분 DB 기준 (2,227개 식품 → 675개 고유 식품) &nbsp;|&nbsp; 1일 구리 섭취 목표: <strong>1mg 이하</strong><br>같은 식품이 조리법에 따라 구리 함유량이 달라질 수 있으므로, <strong>해당 식품의 최대 함유량</strong> 기준으로 분류</p>
+
+<h2 style="background:#f3f4f6; border-left:4px solid #333;">핵심 요약</h2>
+
+<div class="section-avoid no-break">
+<h3>🚫 반드시 피해야 할 식품</h3>
+<p class="note">💡 100g당 기준입니다. 양념류처럼 소량 사용하는 식품은 1회 사용량이 적어 실제 구리 섭취량은 낮을 수 있습니다. 다만 주식·반찬으로 많이 먹는 식품(해산물, 견과류, 콩류 등)은 그대로 위험합니다.</p>
+<table class="tbl-danger">
+  <tr><th>내장류</th><td>소간, 돼지간, 닭간, 거위간 등 모든 간 + 신장, 심장</td></tr>
+  <tr><th>갑각류·연체류</th><td>굴, 꼴뚜기, 오징어, 게, 낙지, 새우, 문어</td></tr>
+  <tr><th>견과류</th><td>캐슈넛, 해바라기씨, 헤이즐넛, 브라질넛, 아몬드, 잣, 땅콩, 들깨, 호두</td></tr>
+  <tr><th>콩류(마른 콩)</th><td>대두(검은콩, 노란콩), 렌틸콩, 병아리콩, 팥, 완두, 강낭콩</td></tr>
+  <tr><th>버섯(말린 것)</th><td>말린 양송이, 말린 표고, 말린 느타리, 말린 새송이</td></tr>
+  <tr><th>초콜릿·코코아</th><td>다크 초콜릿, 코코아, 밀크초콜릿</td></tr>
+  <tr><th>잡곡</th><td>기장, 조, 메밀, 귀리, 호밀</td></tr>
+  <tr><th>말린 채소</th><td>시래기, 말린 쑥, 말린 곤드레, 말린 죽순</td></tr>
+  <tr><th>양념류</th><td>후추, 고춧가루, 청국장, 계피, 된장 <em>(소량 사용 시 위험도 낮음)</em></td></tr>
+</table>
+</div>
+
+<div class="two-col">
+<div class="section-caution no-break">
+<h3>⚠️ 주의해서 먹을 식품</h3>
+<table class="tbl-caution">
+  <tr><th>채소</th><td>우엉, 토마토페이스트, 마늘, 구기자, 공심채</td></tr>
+  <tr><th>과일</th><td>건포도, 말린 자두, 말린 무화과, 바나나, 아보카도, 키위</td></tr>
+  <tr><th>곡류</th><td>현미, 보리, 식빵, 찹쌀떡, 누룽지</td></tr>
+  <tr><th>해산물</th><td>멸치, 정어리, 전복</td></tr>
+  <tr><th>조미료</th><td>고추장, 쌈장, 짜장소스</td></tr>
+  <tr><th>기타</th><td>달걀 노른자(가루), 율무차</td></tr>
+</table>
+</div>
+
+<div class="section-safe no-break">
+<h3>✅ 안심 식품</h3>
+<table class="tbl-safe">
+  <tr><th>육류</th><td>소고기(살코기), 돼지고기(살코기), 닭고기</td></tr>
+  <tr><th>해산물</th><td>연어, 참치, 방어, 전갱이, 꼬막</td></tr>
+  <tr><th>채소</th><td>양배추, 상추, 오이, 시금치, 파프리카</td></tr>
+  <tr><th>과일</th><td>배, 귤, 수박, 복숭아, 사과, 딸기</td></tr>
+  <tr><th>곡류</th><td><strong>흰쌀밥</strong>, 밀가루, 쌀과자, 국수</td></tr>
+  <tr><th>유제품</th><td>우유, 치즈, 요거트, 버터</td></tr>
+  <tr><th>난류</th><td>달걀(전란), 메추리알</td></tr>
+  <tr><th>유지류</th><td>올리브유, 참기름, 들기름, 식용유</td></tr>
+  <tr><th>조미료</th><td>간장, 소금, 식초, 토마토케첩</td></tr>
+</table>
+</div>
+</div>
+
+<div class="tips no-break">
+<h3>💡 일상 식사 팁</h3>
+<ol>
+  <li><strong>밥은 흰쌀밥</strong> 위주로 — 현미·잡곡밥은 구리 함량 높음</li>
+  <li><strong>고기는 살코기</strong> 위주로 — 내장(간, 심장, 신장)은 절대 금지</li>
+  <li><strong>견과류·초콜릿은 간식에서 제외</strong></li>
+  <li><strong>말린 버섯은 금지</strong> — 생버섯은 종류별로 다름 (팽이·송이는 OK, 양송이·표고는 주의)</li>
+  <li><strong>해산물은 연어 위주</strong> — 조개·갑각류·오징어는 피할 것</li>
+  <li><strong>콩류는 두부</strong> 정도만 제한적으로 — 마른 콩 자체는 피할 것</li>
+  <li><strong>과일·채소는 생것 위주</strong> — 말린 과일·말린 채소는 구리 농축되어 위험</li>
+  <li><strong>양념은 간장·소금·식초</strong> 위주 — 된장·고추장·후추·고춧가루는 구리 높음</li>
+  <li><strong>구리 배관 수돗물 주의</strong> — 정수된 물 사용 권장</li>
+</ol>
+</div>
+
+<!-- ===== 페이지 2: 등급 기준 + 상세 분류 ===== -->
+<div class="page-break"></div>
+
+<h2 style="background:#f3f4f6; border-left:4px solid #333;">등급 기준 (100g당)</h2>
+<table class="grade-table no-break">
+  <thead><tr><th>등급</th><th>기준</th><th>식사 지침</th></tr></thead>
+  <tbody>
+    <tr><td style="background:#fecaca;">🔴 초고함량</td><td>≥ 1.0 mg</td><td><strong>절대 금지</strong></td></tr>
+    <tr><td style="background:#fed7aa;">🟠 고함량</td><td>0.3 ~ 1.0 mg</td><td><strong>피할 것</strong></td></tr>
+    <tr><td style="background:#fef08a;">🟡 주의</td><td>0.2 ~ 0.3 mg</td><td><strong>제한적 섭취</strong></td></tr>
+    <tr><td style="background:#bbf7d0;">🟢 저함량</td><td>&lt; 0.2 mg</td><td><strong>자유 섭취</strong></td></tr>
+  </tbody>
+</table>
+<p class="note">근거: 세브란스병원 영양상담(0.2mg 이하 자유), CRMR Wilson(0.3mg 이상 주의), Wilson Disease Association<br>같은 식품이 여러 등급에 해당할 경우 <strong>최대 함유량 기준</strong>으로 상위 등급에만 배치<br>⚠️ 모든 수치는 <strong>100g당</strong> 기준. 양념·향신료처럼 1회 사용량이 수 g인 식품은 등급이 높아도 실제 섭취 구리량은 적습니다.</p>
+
+<!-- 🔴 초고함량 -->
+<h2 class="grade-red">🔴 초고함량 (≥ 1.0 mg/100g) — 절대 금지</h2>
+<div class="detail-section">
+  <p><span class="cat">육류</span>송아지 간, 소 간, 거위 간, 어린양 간, 프레스햄, 돼지 간</p>
+  <p><span class="cat">해산물</span>꼴뚜기, 굴, 가재, 오징어, 크릴, 새우, 게, 낙지</p>
+  <p><span class="cat">채소</span>쑥, 고비, 곤드레, 죽순, 참죽나물, 머위</p>
+  <p><span class="cat">곡류</span>다식</p>
+  <p><span class="cat">콩류</span>쥐눈이콩, 대두</p>
+  <p><span class="cat">버섯</span>양송이버섯, 꽃송이버섯</p>
+  <p><span class="cat">견과류</span>캐슈너트, 해바라기씨, 브라질너트, 들깨, 개암, 수박씨, 잣, 삼씨(대마씨), 피스타치오, 참깨, 아마씨, 호박씨, 아몬드, 호두, 목화씨 외 1개</p>
+  <p><span class="cat">당류·음료</span>코코아, 녹차, 초콜릿</p>
+  <p><span class="cat">조미료·가공식품</span>청국장, 육두구, 후추, 파프리카, 칠리</p>
+  <p><span class="cat">기타</span>달팽이, 흰점박이 꽃무지, 메뚜기, 갈색 거저리, 단백질보충제, 화분, 누에</p>
+</div>
+
+<!-- 🟠 고함량 -->
+<h2 class="grade-orange">🟠 고함량 (0.3 ~ 1.0 mg/100g) — 피할 것</h2>
+<div class="detail-section">
+  <p><span class="cat">육류</span>돼지 신장, 소 신장, 소 심장, 송아지 신장, 닭 심장, 돼지 심장(염통), 송아지 심장, 닭 간, 오리고기, 거위고기</p>
+  <p><span class="cat">해산물</span>우렁이, 멍게, 은어, 문어, 가리비, 잉어</p>
+  <p><span class="cat">채소</span>가지, 보리, 쇠귀나물, 고추, 취나물, 국화꽃, 뽕잎, 꾸지뽕, 호박, 고춧잎, 도라지, 갯나물, 더덕, 삼채, 고사리 외 5개</p>
+  <p><span class="cat">과일</span>롱안, 대추야자, 살구, 아세로라</p>
+  <p><span class="cat">곡류</span>기장, 조, 메밀, 밀, 아마란스, 보리, 미숫가루, 귀리, 호밀, 메밀 국수, 옥수수, 메밀묵, 현미, 케이크, 퀴노아</p>
+  <p><span class="cat">콩류</span>잠두, 병아리콩, 렌틸콩, 팥, 리마콩, 완두, 강낭콩, 녹두, 동부, 두부</p>
+  <p><span class="cat">유제품·난류</span>오리알, 아이스크림, 분유</p>
+  <p><span class="cat">버섯</span>표고버섯, 새송이버섯, 석이버섯, 느타리버섯, 영지버섯, 잎새버섯</p>
+  <p><span class="cat">해조류</span>파래, 김</p>
+  <p><span class="cat">견과류</span>치아씨, 코코넛, 땅콩, 밤, 은행, 마카다미아</p>
+  <p><span class="cat">감자·전분</span>돼지감자, 고구마</p>
+  <p><span class="cat">당류·음료</span>로열 젤리, 초코바</p>
+  <p><span class="cat">조미료·가공식품</span>파슬리, 계피, 고춧가루, 타라곤, 오레가노, 타임, 산초, 템페, 낫토, 로즈메리, 올스파이스, 겨자, 뽕잎, 고추냉이, 된장 외 9개</p>
+  <p><span class="cat">유지류</span>땅콩버터</p>
+  <p><span class="cat">기타</span>인삼, 쌍별귀뚜라미, 송화</p>
+</div>
+
+<!-- 🟡 주의 -->
+<h2 class="grade-yellow">🟡 주의 (0.2 ~ 0.3 mg/100g) — 제한적 섭취</h2>
+<div class="detail-section">
+  <p><span class="cat">육류</span>소 허파, 송아지 골, 송아지 허파, 돼지 부산물, 송아지 부산물</p>
+  <p><span class="cat">해산물</span>멸치, 둑중개, 정어리, 백합, 전복, 조기(참조기), 쥐치</p>
+  <p><span class="cat">채소</span>토마토, 마늘, 구기자, 공심채, 우엉, 고수, 아티초크, 갯기름나물</p>
+  <p><span class="cat">과일</span>무화과, 자두, 포도, 바나나</p>
+  <p><span class="cat">곡류</span>시리얼, 찹쌀현미, 백미, 빵, 잡곡, 마카로니, 스파게티면, 과자, 찹쌀떡, 찹쌀빵, 칠분도미, 누룽지, 찹쌀백미, 배아미, 멥쌀 과자 외 1개</p>
+  <p><span class="cat">유제품·난류</span>달걀</p>
+  <p><span class="cat">버섯</span>동충하초, 목이버섯</p>
+  <p><span class="cat">해조류</span>미역튀각</p>
+  <p><span class="cat">견과류</span>연씨</p>
+  <p><span class="cat">감자·전분</span>곤약, 감자 과자</p>
+  <p><span class="cat">당류·음료</span>율무차</p>
+  <p><span class="cat">조미료·가공식품</span>양파, 미소, 레몬그라스, 고추장, 짜장 소스, 강황, 쌈장</p>
+  <p><span class="cat">유지류</span>호두유</p>
+  <p><span class="cat">기타</span>팽창제</p>
+</div>
+
+<!-- 🟢 저함량 -->
+<h2 class="grade-green">🟢 저함량 (&lt; 0.2 mg/100g) — 자유 섭취</h2>
+<div class="detail-section">
+  <p><span class="cat">육류</span>토끼고기, 소고기, 송아지고기, 양고기, 어린양고기, 소시지, 멧돼지고기, 돼지고기, 고래고기, 닭고기, 말고기, 메추리고기, 염소고기, 닭발, 칠면조고기 외 13개</p>
+  <p><span class="cat">해산물</span>숭어, 멍게(우렁쉥이), 빙어, 고등어, 청어, 바지락, 꽁치, 담치, 참다랑어 샐러드, 명태, 까나리, 다랑어, 방어, 전갱이, 꼬막 외 27개</p>
+  <p><span class="cat">채소</span>초석잠, 백합, 산마늘(명이나물), 음나무(엄나무), 원추리, 배초향(방아), 들깻잎, 화살나무(홑잎), 냉이, 가시오갈피, 바질, 들깻잎장아찌, 쑥부쟁이, 할라페뇨, 김치 외 89개</p>
+  <p><span class="cat">과일</span>머루, 두리안, 아보카도, 키위, 블루베리, 백향과(패션프루트), 비파, 올리브 절임, 블랙베리, 복분자, 리치, 석류, 구기자, 바나나칩, 딸기 외 63개</p>
+  <p><span class="cat">곡류</span>즉석밥, 수수, 호밀빵, 에그누들, 옥수수 과자, 칼국수면, 메밀 냉면, 국수, 율무, 수수떡, 멥쌀 국수, 쫄면, 라면, 찹쌀 과자, 중식면 외 2개</p>
+  <p><span class="cat">콩류</span>두유, 녹두국수, 녹두묵</p>
+  <p><span class="cat">유제품·난류</span>메추리알, 우유, 치즈, 모유, 크림, 커피크리머, 산양유, 요구르트, 연유, 셔벗</p>
+  <p><span class="cat">버섯</span>송이버섯, 상황버섯, 노루궁뎅이버섯, 아위버섯, 팽이버섯, 만가닥버섯</p>
+  <p><span class="cat">해조류</span>미역, 매생이</p>
+  <p><span class="cat">견과류</span>도토리묵, 잣죽, 마름, 코코넛수</p>
+  <p><span class="cat">감자·전분</span>감자, 토란, 마, 감자 샐러드, 감자튀김, 히카마(얌빈), 칡, 야콘, 전분, 당면, 칡즙, 올방개묵</p>
+  <p><span class="cat">당류·음료</span>쌍화차, 젤라틴, 셰이크, 칵테일, 커피, 사탕, 채소 주스, 녹차라테, 양갱, 브랜디, 꿀, 푸딩, 생강청, 시럽, 탄산 음료 외 47개</p>
+  <p><span class="cat">조미료·가공식품</span>머스타드 소스, 토마토 소스, 카레 소스, 만두, 하이라이스, 칠리 소스, 애플민트, 우동 건더기 스프, 스파게티, 햄버거, 샌드위치, 겨자 페이스트, 두반장, 피자, 라면 외 38개</p>
+  <p><span class="cat">유지류</span>쇼트닝, 포도씨유, 버터, 유채씨기름, 면실유, 잇꽃씨기름, 혼합식물성유, 고추기름, 닭기름, 돼지기름, 들기름, 땅콩기름, 마가린, 쌀겨기름(미강유), 아마씨유 외 10개</p>
+  <p><span class="cat">기타</span>장수풍뎅이, 고로쇠나무</p>
+</div>
+
+<!-- 참고 자료 + 경고 -->
+<div class="refs">
+  <strong>참고 자료</strong><br>
+  삼성서울병원 — 구리로 조절하는 윌슨병 &nbsp;|&nbsp;
+  CRMR Wilson — 식이 가이드 &nbsp;|&nbsp;
+  Wilson Disease Association — Copper Food Lists
+</div>
+
+<div class="warning-box">
+  ⚠️ 개인 상태에 따라 다를 수 있으므로 반드시 담당 의사 또는 영양사와 상담 후 활용하세요.
+</div>
+
+</body>
+</html>
