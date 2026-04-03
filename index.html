@@ -226,7 +226,7 @@ function render(){
       detailHtml+='</div>';
     }
 
-    html+=`<div class="item${hasDetails?' expandable':''}" ${hasDetails?'onclick="this.classList.toggle(&quot;expanded&quot;)"':''}>
+    html+=`<div class="item${hasDetails?' expandable':''}">
       <div class="badge badge-${d.grade}">${d.grade.replace("초고함량","초고\n함량").replace("고함량","고\n함량").replace("저함량","저\n함량")}</div>
       <div class="item-info">
         <div class="item-name">${d.name}${hasDetails?'<span class="chevron">▸</span>':''}</div>
@@ -260,6 +260,24 @@ catBtns.forEach(btn=>{
   });
 });
 searchInput.addEventListener("input",render);
+
+// 아이템 탭 → 펼치기 (touchend로 iOS 키보드 문제 우회)
+resultsEl.addEventListener("touchend",function(e){
+  const item=e.target.closest(".item.expandable");
+  if(item){
+    searchInput.blur();
+    item.classList.toggle("expanded");
+    e.preventDefault();
+  }
+});
+// 데스크톱 클릭 대응
+resultsEl.addEventListener("click",function(e){
+  const item=e.target.closest(".item.expandable");
+  if(item && !("ontouchend" in window)){
+    item.classList.toggle("expanded");
+  }
+});
+
 searchInput.focus();
 render();
 </script>
