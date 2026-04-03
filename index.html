@@ -226,7 +226,7 @@ function render(){
       detailHtml+='</div>';
     }
 
-    html+=`<div class="item${hasDetails?' expandable':''}" ${hasDetails?'onclick="this.classList.toggle('expanded')"':''}>
+    html+=`<div class="item${hasDetails?' expandable':''}" ${hasDetails?'onclick="this.classList.toggle(&quot;expanded&quot;)"':''}>
       <div class="badge badge-${d.grade}">${d.grade.replace("초고함량","초고\n함량").replace("고함량","고\n함량").replace("저함량","저\n함량")}</div>
       <div class="item-info">
         <div class="item-name">${d.name}${hasDetails?'<span class="chevron">▸</span>':''}</div>
